@@ -1,0 +1,6 @@
+Button outputs 'B'
+"		" 'E' 
+"		" 'L' - location 
+
+jeff making 2 functions
+	plot gliderx, glidery, - create them as global variables.
