@@ -8,8 +8,13 @@
 #include "Wire.h"
 #include "SPI.h"
 #include <SparkFunDS1307RTC.h>
+//These are needed for the HMC Magnometer
+#include <Adafruit_Sensor.h>
+#include <Adafruit_HMC5883_U.h>
+
 
 BME280 mySensor;
+Adafruit_HMC5883_Unified mag = Adafruit_HMC5883_Unified(12345);
 
 #define PRINT_USA_DATE
 
@@ -78,6 +83,17 @@ void setup()
   rtc.begin();
   rtc.writeSQW(SQW_SQUARE_1);
   rtc.setTime(0, 0, 0, 0, 0, 0, 0);
+
+  Serial.println("HMC5883 Magnetometer Test"); Serial.println(""); //HMC
+  
+  /* Initialise the sensor */
+  if(!mag.begin()) //HMC
+  {
+    /* There was a problem detecting the HMC5883 ... check your connections */
+    Serial.println("Ooops, no HMC5883 detected ... Check your wiring!");
+    while(1);
+  }
+  
 }
 
 void loop()
@@ -85,6 +101,9 @@ void loop()
 
   static int8_t lastSecond = -1;
   rtc.update();
+
+  sensors_event_t event;  //HMC
+  mag.getEvent(&event); //HMC
 
    if (rtc.second() != lastSecond) // If the second has changed
   {
@@ -112,6 +131,11 @@ void loop()
   XBee.print(">");
 
   XBee.print("\n");
+
+  Serial.print("X: "); Serial.print(event.magnetic.x); Serial.print("  "); //HMC
+  Serial.print("Y: "); Serial.print(event.magnetic.y); Serial.print("  ");
+  Serial.print("Z: "); Serial.print(event.magnetic.z); Serial.print("  ");Serial.println("uT");
+  
   
   delay(1000);  
 
