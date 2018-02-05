@@ -47,6 +47,7 @@ void setup() {
   Serial.begin(9600); //Initializing Serial line
   Wire.begin();
   pinMode(3, OUTPUT); //Buzzer
+  radio.begin(9600);
   tiltBegin();
   bmpBegin();
   rtcBegin();
@@ -69,6 +70,14 @@ void loop() {
   getHeading();
   GPSloop();
   
+  if (Serial.available())
+  { // If data comes in from serial monitor, send it out to XBee
+    radio.write(Serial.read());
+  }
+  if (radio.available())
+  { // If data comes in from XBee, send it out to serial monitor
+    Serial.write(radio.read());
+  }
 
   wakeRadio();
   
@@ -80,6 +89,6 @@ void loop() {
   
   //startBuzz();  Temporarily not needed
   Serial.println();
-  sleepRadio();
+  //sleepRadio();
   delay(1000);
 }
