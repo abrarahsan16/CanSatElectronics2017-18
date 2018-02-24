@@ -1,6 +1,7 @@
 void setupFunctions(){
   Wire.begin();
   setupBMP();
+  setupCamera();
   setupBuzzer();
   setupRTC();
   setupGPS();
