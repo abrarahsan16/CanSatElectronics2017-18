@@ -37,12 +37,15 @@
 
 #define teleArrayLength 16 //Array Length
 #define TeamID 1092
+
+//Pin Declaration
 #define voltageBus A0 //Use this pin to find the voltage of the battery
 #define SS_Rx 3
 #define SS_Tx 4
+#define xBeeSleepPin 8
 
 //Debugger: When 0, prints to serial monitor. When 1, prints to Xbee
-int debugger = 0;
+int radioDebugger = 0;
 
 //Global Variables
 int packetCount = 0; //Count of how many times everything has run
@@ -74,6 +77,7 @@ boolean usingInterrupt = false;
 void useInterrupt(boolean); 
 
 SoftwareSerial mySerial(SS_Rx, SS_Tx);
+SoftwareSerial radio(SS_Rx, SS_Tx);
 
 //Sensors
 Adafruit_GPS GPS(&mySerial);
