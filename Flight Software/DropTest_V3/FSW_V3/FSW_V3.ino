@@ -42,7 +42,8 @@
 #define voltageBus A0 //Use this pin to find the voltage of the battery
 #define SS_Rx 3
 #define SS_Tx 4
-#define xBeeSleepPin 8
+//#define xBeeSleepPin 8
+#define trig 2
 
 //Debugger: When 0, prints to serial monitor. When 1, prints to Xbee
 int radioDebugger = 0;

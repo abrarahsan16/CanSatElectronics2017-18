@@ -1,5 +1,5 @@
 //Xbee. Requires work
-void setupRadio()
+/*void setupRadio()
 {
   radio.begin(9600);
   sleepRadio();
@@ -14,4 +14,4 @@ void wakeRadio(){
   pinMode(xBeeSleepPin, OUTPUT);
   digitalWrite(xBeeSleepPin, LOW);
 }
-
+*/
