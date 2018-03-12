@@ -1,10 +1,9 @@
 // Xbee
 void setupRadio()
 {
-  radio.begin(9600);
+  radio.begin(19200);
   
   //Pins should be declared in main file
-  //SoftwareSerial XBee(2, 3); // RX, TX
 }
 
 void radioTransmit()
