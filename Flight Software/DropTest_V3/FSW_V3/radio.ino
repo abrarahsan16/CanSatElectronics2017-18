@@ -1,4 +1,3 @@
-//Xbee. Requires work
 /*void setupRadio()
 {
   radio.begin(9600);
