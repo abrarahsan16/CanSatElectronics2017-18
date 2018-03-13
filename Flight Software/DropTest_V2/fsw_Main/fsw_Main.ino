@@ -32,10 +32,11 @@ float Gyro_raw_error_x, Gyro_raw_error_y, Gyro_raw_error_z; //Here we store the 
 uint32_t timer = millis();
 
 //Declaring sensor
-SoftwareSerial mySerial(13, 12);
+//SoftwareSerial mySerial(13, 12);
+//This should be xbee, either change pins to 13 and 12 or keep at 3 and 4.
 SoftwareSerial radio(3,4);
 
-Adafruit_GPS GPS(&mySerial);
+//Adafruit_GPS GPS(&mySerial);
 Adafruit_BMP085 bmp;
 HMC5883L compass;
 
@@ -51,8 +52,8 @@ void setup() {
   tiltBegin();
   bmpBegin();
   rtcBegin();
-  GPSBegin();
-  setupRadio();
+  //GPSBegin();
+  //setupRadio();
 
   //Assigning values
   telemetry[0] = teamID;
@@ -68,8 +69,9 @@ void loop() {
   getPressure();
   getAlt();
   getHeading();
-  GPSloop();
+  //GPSloop();
   
+  //Change this part to the xbee code you found.
   if (Serial.available())
   { // If data comes in from serial monitor, send it out to XBee
     radio.write(Serial.read());
@@ -79,8 +81,10 @@ void loop() {
     Serial.write(radio.read());
   }
 
-  wakeRadio();
+  //wakeRadio();
   
+  
+  //This should be inside the xbee code
   for(int i=0; i<dataSize; i++)
   {
     Serial.print(telemetry[i]);
@@ -88,7 +92,7 @@ void loop() {
   }
   
   //startBuzz();  Temporarily not needed
-  Serial.println();
+  //Serial.println();
   //sleepRadio();
   delay(1000);
 }
