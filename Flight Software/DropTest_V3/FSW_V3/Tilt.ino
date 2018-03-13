@@ -139,8 +139,8 @@ void getTilt()
   Serial.println(yaw);*/
 
   
-  teleArray[teleTiltX] = Acc_angle_x;
-  teleArray[teleTiltY] = Acc_angle_y;
-  teleArray[teleTiltZ] = Acc_angle_z;
+  TeleArray[TeleTiltX] = Acc_angle_x;
+  TeleArray[TeleTiltY] = Acc_angle_y;
+  TeleArray[TeleTiltZ] = Acc_angle_z;
 }
 

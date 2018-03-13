@@ -13,7 +13,7 @@
 #include <SoftwareSerial.h>
 #include <SPI.h>
 #include <Adafruit_BMP085.h>
-#include <HMC5883L.h>
+#include <Adafruit_HMC5883_U.h>
 #include <MPU6050.h>
 #include <SparkFunDS1307RTC.h>
 
@@ -35,15 +35,14 @@
 #define TeleTiltZ 14
 #define TeleState 15
 
-#define teleArrayLength 16 //Array Length
+#define TeleArrayLength 16 //Array Length | Was previously "teleArrayLength" but other lines use "TeleArrayLength"
 #define TeamID 1092
 
 //Pin Declaration
 #define voltageBus A0 //Use this pin to find the voltage of the battery
 #define SS_Rx 3
 #define SS_Tx 4
-//#define xBeeSleepPin 8
-#define trig 2
+#define xBeeSleepPin 8
 
 //Debugger: When 0, prints to serial monitor. When 1, prints to Xbee
 int radioDebugger = 0;
@@ -102,7 +101,7 @@ void loop() {
   // put your main code here, to run repeatedly:
   
   packetCount++;
-  teleArray[telePacket] = packetCount;
+  TeleArray[TelePacket] = packetCount; // Was previously "teleArray" and "telePacket" when other lines used "TeleArray" and "TelePacket" 
 
   transmitData_Serial();
 }

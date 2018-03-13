@@ -9,16 +9,16 @@ void setupBMP()
 
 void getTemp()
 {
-  teleArray[TeleTemp] = bmp.readTemperature();
+  TeleArray[TeleTemp] = bmp.readTemperature();
 }
 
 void getPressure()
 {
-  teleArray[telePressure] = bmp.readPressure();
+  TeleArray[TelePressure] = bmp.readPressure();
 }
 
 void getAlt()
 {
-  teleArray[teleAlt] = bmp.readAltitude();
+  TeleArray[TeleAlt] = bmp.readAltitude();
 }
 
