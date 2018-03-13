@@ -1,4 +1,4 @@
-void setupRadio(){
+/*void setupRadio(){
   //sleepRadio();
 }
 
@@ -11,4 +11,4 @@ void wakeRadio(){
   pinMode(8, OUTPUT);
  digitalWrite(8, LOW);
 }
-
+*/
