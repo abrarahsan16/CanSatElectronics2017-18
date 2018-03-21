@@ -10,5 +10,6 @@ void setupFunctions(){
   setupVoltage();
   //radio.begin(19200); This line is included in setupRadio();
 }
+//Buzzer is to turn on at 10meters
 
 
