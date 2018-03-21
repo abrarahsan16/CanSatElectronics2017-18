@@ -1,3 +1,6 @@
+// This code will not work since GPSECHO has not been declared anywhere
+// There is no existing function for .seconds to get time; perhaps its called something else?
+
 void setupGPS()
 {
   GPS.begin(19200);
@@ -61,11 +64,11 @@ void GPSLoop()
   timer = millis(); // reset the timer
   }*/
 
-  teleArray[teleGTime] = (GPS.second,DEC) + 60*(GPS.minute,DEC) + 3600*(GPS.hour,DEC);
-  teleArray[teleGLat] = (GPS.latitude, 4); //need to test
-  teleArray[teleGLong] = (GPS.longitude, 4); //need to test
-  teleArray[teleGAlt] = (GPS.altitude);
-  teleArray[teleSats] = (GPS.satellites);
+  TeleArray[TeleGTime] = (GPS.second,DEC) + 60*(GPS.minute,DEC) + 3600*(GPS.hour,DEC);
+  TeleArray[TeleGLat] = (GPS.latitude, 4); //need to test
+  TeleArray[TeleGLong] = (GPS.longitude, 4); //need to test
+  TeleArray[TeleGAlt] = (GPS.altitude);
+  TeleArray[TeleGSats] = (GPS.satellites);
 
 }
 

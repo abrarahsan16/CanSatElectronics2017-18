@@ -1,4 +1,6 @@
 //Camera
+// This code will not work because "trig" has not been declared anywhere
+
 void setupCamera()
 {
   pinMode(trig, OUTPUT);

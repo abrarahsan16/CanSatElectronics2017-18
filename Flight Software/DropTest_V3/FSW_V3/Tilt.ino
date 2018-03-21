@@ -2,6 +2,13 @@
 // Credits to Warda Noman for testing and completion of this//
 // Contact her for further information on this part         //
 //////////////////////////////////////////////////////////////
+
+// The following variables are not declared but are likely to be replaced by a constant
+// HMC5883L_RANGE_1_3GA
+// HMC5883L_CONTINOUS
+// HMC5883L_DATARATE_30HZ
+// HMC5883L_SAMPLES_8
+
 void setupTilt()
 {
   while(!compass.begin()) //Checks if HMC is available
@@ -25,13 +32,15 @@ void setupTilt()
   mpu.calibrateGyro(); //Comment this line if we do not need to calibrate the gyroscope
   mpu.setThreshold(3); //Comment this line if we do not need to use threshold, or set to 0
 
-  Wire.begin()  //Begin wire communication
+  // Wire.begin() is used in flightStaging, and declared before all sensors are set up
+  
+  //Wire.begin()  //Begin wire communication
   Wire.beginTransmission(0x68); //Send the slave address 68
   Wire.write(0x6B); //Make the reset(place a 0 into the 6B register)
   Wire.write(0x00); 
   Wire.endTransmission(true); //end transmission
 
-  Wire.beginTransmission(0x68) //Start communication with the address found during search\
+  Wire.beginTransmission(0x68); //Start communication with the address found during search\
   Wire.write(0x1C); //we want to write to the ACCEL_CONFIG Register
   Wire.write(0x10); //Set the register bits as 00010000 (+/- 8g full scale range)
   Wire.endTransmission(true);
@@ -66,7 +75,8 @@ void setupTilt()
     }
   }//End of error calculation
 
-  Wire.begin();                           //begin the wire comunication
+  // Wire.begin() is declared earlier and before all the sensors are set up
+  //Wire.begin();                           //begin the wire comunication
   Wire.beginTransmission(0x68);           //begin, Send the slave adress (in this case 68)
   Wire.write(0x6B);                       //make the reset (place a 0 into the 6B register)
   Wire.write(0x00);
@@ -76,7 +86,9 @@ void setupTilt()
   Wire.write(0x1B);                       //We want to write to the GYRO_CONFIG register (1B hex)
   Wire.write(0x10);                       //Set the register bits as 00010000 (1000dps full scale)
   Wire.endTransmission(true);             //End the transmission with the gyro
-  tilttime = millis();                        //Start counting time in milliseconds
+  
+  // All instances of tilttime are commented out, so naturally this line should also be commented out
+  //tilttime = millis();                        //Start counting time in milliseconds
 }
 
 void getTilt()

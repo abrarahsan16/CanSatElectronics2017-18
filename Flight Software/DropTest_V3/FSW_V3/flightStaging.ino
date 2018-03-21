@@ -8,7 +8,7 @@ void setupFunctions(){
   setupRadio();
   setupTilt();
   setupVoltage();
-  radio.begin(19200);
+  //radio.begin(19200); This line is included in setupRadio();
 }
 
 

@@ -11,10 +11,10 @@ void radioTransmit()
   //Send the TeleArray array values to the ground station
   for (int index = 0; index < sizeof(TeleArray); index++)
   {
-    XBee.write (TeleArray[index]);
+    radio.write (TeleArray[index]);
   }
     
-  if (XBee.available())
+  if (radio.available())
   { 
     // If data comes in from XBee, change a certain variable
     

@@ -6,7 +6,7 @@ void setupRTC()
 void getTime()
 {
   rtc.update();
-  int missiontTime = rtc.getSecond() + 60*rtc.getMinute() + 3600*rtc.getHour(); //Time in seconds
+  int missionTime = rtc.getSecond() + 60*rtc.getMinute() + 3600*rtc.getHour(); //Time in seconds
   TeleArray[TeleMissionTime] = missionTime;
 }
 
