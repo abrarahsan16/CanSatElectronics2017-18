@@ -4,7 +4,7 @@ void setupFunctions(){
   setupCamera();
   setupBuzzer();
   setupRTC();
-  setupGPS();
+//  setupGPS();
   setupRadio();
   setupTilt();
   setupVoltage();
@@ -12,4 +12,14 @@ void setupFunctions(){
 }
 //Buzzer is to turn on at 10meters
 
+void collectData()
+{
+  getTemp();
+  getPressure();
+  getAlt();
+//  GPSLoop();
+  getTime();
+  getTilt();
+  callVoltage();
+}
 

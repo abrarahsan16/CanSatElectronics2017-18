@@ -9,11 +9,12 @@
 //Libraries
 #include <Wire.h>
 #include <stdint.h>
-#include <Adafruit_GPS.h>
+//#include <Adafruit_GPS.h>
 #include <SoftwareSerial.h>
 #include <SPI.h>
 #include <Adafruit_BMP085.h>
 #include <Adafruit_HMC5883_U.h>
+#include <HMC5883L.h>
 #include <MPU6050.h>
 #include <SparkFunDS1307RTC.h>
 
@@ -40,9 +41,10 @@
 
 //Pin Declaration
 #define voltageBus A0 //Use this pin to find the voltage of the battery
-#define SS_Rx 3
-#define SS_Tx 4
-#define xBeeSleepPin 8
+#define SS_Rx 5
+#define SS_Tx 6
+#define trig 2
+//#define xBeeSleepPin 8
 
 //Debugger: When 0, prints to serial monitor. When 1, prints to Xbee
 int radioDebugger = 0;
@@ -80,11 +82,11 @@ float yaw = 0;
 boolean usingInterrupt = false;
 void useInterrupt(boolean); 
 
-SoftwareSerial mySerial(SS_Rx, SS_Tx);
+SoftwareSerial mySerial(4, 3);
 SoftwareSerial radio(SS_Rx, SS_Tx); // radio is the Xbee
 
 //Sensors
-Adafruit_GPS GPS(&mySerial);
+//Adafruit_GPS GPS(&mySerial);
 Adafruit_BMP085 bmp;
 HMC5883L compass;
 MPU6050 mpu;
@@ -103,9 +105,10 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  
+  collectData();
   packetCount++;
-  TeleArray[TelePacket] = packetCount; // Was previously "teleArray" and "telePacket" when other lines used "TeleArray" and "TelePacket" 
+  Serial.println(TeleArray[5]);
+  //TeleArray[TelePacket] = packetCount; // Was previously "teleArray" and "telePacket" when other lines used "TeleArray" and "TelePacket" 
 
-  transmitData_Serial();
+  //radioTransmit();
 }

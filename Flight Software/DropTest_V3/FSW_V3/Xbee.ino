@@ -11,7 +11,8 @@ void radioTransmit()
   //Send the TeleArray array values to the ground station
   for (int index = 0; index < sizeof(TeleArray); index++)
   {
-    radio.write (TeleArray[index]);
+    //radio.write (TeleArray[index]);
+    Serial.println(TeleArray[index]);
   }
     
   if (radio.available())
