@@ -2,7 +2,7 @@
 
 #include <Adafruit_GPS.h>
 #include <SoftwareSerial.h>
-SoftwareSerial mySerial(3, 2);
+SoftwareSerial mySerial(5, 6);
 
 Adafruit_GPS GPS(&mySerial); 
 #define GPSECHO  false
