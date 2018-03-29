@@ -4,7 +4,7 @@ void useInterrupt(boolean); //Func prototype keeps arduino 0023 happy
 
 void gpsSetup()
 {
-  GPS.begin(19200);
+  GPS.begin(9600);
   GPS.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCGGA);
   GPS.sendCommand(PMTK_SET_NMEA_UPDATE_1HZ);   
   GPS.sendCommand(PGCMD_ANTENNA);
