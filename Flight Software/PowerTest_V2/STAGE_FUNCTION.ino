@@ -53,6 +53,6 @@ void printData()
   XBee.write(TeleArray[TeleTiltZ]);
   XBee.write(", ");
   XBee.write(TeleArray[TeleState]);
-  XBee.write("/n");
+  XBee.write("\n");
 }
 
