@@ -19,23 +19,28 @@ Probe
 9 - GPS Latitude
 10 - GPS Longitude
 11 - GPS Altitude
-12 - GPS Sets
-13 - GPS Sats
-14 - Tilt X
-15 - Tilt Y
-16 - Tilt Z
-17 - Software State
+12 - GPS Sats
+13 - Tilt X
+14 - Tilt Y
+15 - Tilt Z
+16 - Software State
 
 %}
 
 global matrix;
 
 tele = strsplit(packet, ',');
-isDeployed = 0;
+disp(tele);
+disp(class(tele));
+pk = str2num(tele{3});
 
+for i= 1:16
+    matrix.probe(pk, i) = str2num(tele{i});
+end
+updateGUI_probeTable(handles, matrix.probe, pk);
 
+disp(tele);
 
-updateGUI_probeTable(handles, matrix.probe);
 
 
 
