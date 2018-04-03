@@ -31,9 +31,10 @@ global matrix;
 
 tele = strsplit(packet, ','); %Split the telemtry into seperate cells
 pk = str2num(tele{3}); %Get the packet count from the telemetry
-sS = str2num(tele{16}); %Get the software state from the telemetry
+sS = str2num(tele{16});
 
-update_GUIcurrentStateButon(handles, sS); %Update the current state button in GUI
+update_GUIcurrentStateButton(handles, sS); %Update the current state button in GUI
+ 
 
 %{
 assign current telemtry to a new row of the global matrix "probe"
@@ -48,6 +49,7 @@ for i= 1:16
 end
 
 updateGUI_probeTable(handles, matrix.probe, pk); %Update the ui Table
+
 
 
 
