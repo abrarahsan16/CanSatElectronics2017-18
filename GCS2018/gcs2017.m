@@ -21,7 +21,7 @@ function varargout = gcs2017(varargin)
 
 % Edit the above text to modify the response to help gcs2017
 
-% Last Modified by GUIDE v2.5 14-Mar-2018 16:11:47
+% Last Modified by GUIDE v2.5 03-Apr-2018 14:21:37
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -63,7 +63,7 @@ handles.output = hObject;
 % Update handles structure
 guidata(hObject, handles);
 axes (handles.logo);
-imshow ('Team_Tomahawk_logo.JPG');
+imshow ('Team_Tomahawk_logo.PNG');
 %CAnada Flag Logo addition
 % axes (handles.CanadaFlag);
 % imshow ('CanadaFlag.png');
@@ -331,3 +331,10 @@ function takePicture_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 frameExtraction();
+
+
+% --- Executes on button press in currentStateButton.
+function currentStateButton_Callback(hObject, eventdata, handles)
+% hObject    handle to currentStateButton (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)

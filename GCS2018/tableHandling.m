@@ -29,17 +29,25 @@ Probe
 
 global matrix;
 
-tele = strsplit(packet, ',');
-disp(tele);
-disp(class(tele));
-pk = str2num(tele{3});
+tele = strsplit(packet, ','); %Split the telemtry into seperate cells
+pk = str2num(tele{3}); %Get the packet count from the telemetry
+sS = str2num(tele{16}); %Get the software state from the telemetry
+
+update_GUIcurrentStateButon(handles, sS); %Update the current state button in GUI
+
+%{
+assign current telemtry to a new row of the global matrix "probe"
+its done this way because in order to continually update a ui table in
+matlab with new information and have all the old information you need to
+add new rows to your global matrix.
+%}
+
 
 for i= 1:16
-    matrix.probe(pk, i) = str2num(tele{i});
+    matrix.probe(pk, i) = str2num(tele{i}); %
 end
-updateGUI_probeTable(handles, matrix.probe, pk);
 
-disp(tele);
+updateGUI_probeTable(handles, matrix.probe, pk); %Update the ui Table
 
 
 

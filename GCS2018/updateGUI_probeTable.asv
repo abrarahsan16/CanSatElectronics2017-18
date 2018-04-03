@@ -1,6 +1,6 @@
 %{
 This function updates the ui Table by converting the data values entered
-from matrix.probe to cells
+from matrix.probe to 
 %}
 
 function [] = updateGUI_probeTable(handles, dataMatrixProbe,pk)
