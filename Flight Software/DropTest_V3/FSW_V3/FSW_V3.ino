@@ -46,6 +46,8 @@
 #define trig 2
 //#define xBeeSleepPin 8
 
+#define EEPROM_I2C_ADDRESS 0x50 // Pins for EEPROM - Jacky
+
 //Debugger: When 0, prints to serial monitor. When 1, prints to Xbee
 int radioDebugger = 0;
 
@@ -82,6 +84,14 @@ float yaw = 0;
 boolean usingInterrupt = false;
 void useInterrupt(boolean); 
 
+// For the EEPROM - Jacky
+int startAddress;
+// This union is for converting floats into bytes for storing into the EEPROM
+union {
+  float fValue;
+  byte bValue[4];
+} floatToByte;
+
 SoftwareSerial mySerial(4, 3);
 SoftwareSerial radio(SS_Rx, SS_Tx); // radio is the Xbee
 
@@ -106,6 +116,7 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   collectData();
+  storeArray(); // Store data into EEPROM - Jacky
   packetCount++;
   Serial.println(TeleArray[5]);
   //TeleArray[TelePacket] = packetCount; // Was previously "teleArray" and "telePacket" when other lines used "TeleArray" and "TelePacket" 
