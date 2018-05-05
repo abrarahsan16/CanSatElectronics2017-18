@@ -32,15 +32,15 @@
 #define TeamID 1092
 
 #define voltageBus A0
-#define GPS_SS_Rx 5
-#define GPS_SS_Tx 6
-#define XBEE_SS_Rx 4
-#define XBEE_SS_Tx 3
+#define GPS_SS_Rx 3
+#define GPS_SS_Tx 4
+//#define XBEE_SS_Rx 4
+//#define XBEE_SS_Tx 3
 
 int packetCount = 0;
 float TeleArray[TeleArrayLength];
 
-SoftwareSerial XBee(XBEE_SS_Rx, XBEE_SS_Tx);
+//SoftwareSerial XBee(XBEE_SS_Rx, XBEE_SS_Tx);
 SoftwareSerial gpsserial(GPS_SS_Rx, GPS_SS_Tx);
 
 Adafruit_BMP085 bmp;
@@ -52,7 +52,7 @@ float seaLevelPressure;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(19200);
-  XBee.begin(19200);
+ // XBee.begin(19200);
   setupFunctions();
 }
 
