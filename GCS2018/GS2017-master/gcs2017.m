@@ -21,7 +21,7 @@ function varargout = gcs2017(varargin)
 
 % Edit the above text to modify the response to help gcs2017
 
-% Last Modified by GUIDE v2.5 03-Apr-2018 14:21:37
+% Last Modified by GUIDE v2.5 04-Jun-2017 18:52:10
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -63,7 +63,7 @@ handles.output = hObject;
 % Update handles structure
 guidata(hObject, handles);
 axes (handles.logo);
-imshow ('Team_Tomahawk_logo.PNG');
+imshow ('Team_Tomahawk_logo.JPG');
 %CAnada Flag Logo addition
 % axes (handles.CanadaFlag);
 % imshow ('CanadaFlag.png');
@@ -126,30 +126,30 @@ ard = connectFunction(comport, handles);
 
 
 % --- Executes during object creation, after setting all properties.
-function uipanelProbe_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to uipanelProbe (see GCBO)
+function uipanelGlider_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to uipanelGlider (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
 
 % --- Executes during object deletion, before destroying properties.
-function uiTableProbe_DeleteFcn(hObject, eventdata, handles)
-% hObject    handle to uiTableProbe (see GCBO)
+function uitableGlider_DeleteFcn(hObject, eventdata, handles)
+% hObject    handle to uitableGlider (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
 
-% --- Executes when selected cell(s) is changed in uiTableProbe.
-function uiTableProbe_CellSelectionCallback(hObject, eventdata, handles)
-% hObject    handle to uiTableProbe (see GCBO)
+% --- Executes when selected cell(s) is changed in uitableGlider.
+function uitableGlider_CellSelectionCallback(hObject, eventdata, handles)
+% hObject    handle to uitableGlider (see GCBO)
 % eventdata  structure with the following fields (see MATLAB.UI.CONTROL.TABLE)
 %	Indices: row and column indices of the cell(s) currently selecteds
 % handles    structure with handles and user data (see GUIDATA)
 
 
 % --- Executes during object creation, after setting all properties.
-function uiTableProbe_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to uiTableProbe (see GCBO)
+function uitableGlider_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to uitableGlider (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -218,13 +218,13 @@ function stopTimer_Callback(hObject, eventdata, handles)
 stopTimerFunction();
 
 
-% --- Executes on button press in startBurnA.
-function startBurnA_Callback(hObject, eventdata, handles)
-% hObject    handle to startBurnA (see GCBO)
+% --- Executes on button press in startBurn.
+function startBurn_Callback(hObject, eventdata, handles)
+% hObject    handle to startBurn (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 global ard;
-fprintf('%c\n', 'A');
+fprintf('%c\n', 'B');
  
 
 
@@ -316,13 +316,13 @@ function property_SizeChangedFcn(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 
-% --- Executes on button press in startBurnB.
-function startBurnB_Callback(hObject, eventdata, handles)
-% hObject    handle to startBurnB (see GCBO)
+% --- Executes on button press in endBurn.
+function endBurn_Callback(hObject, eventdata, handles)
+% hObject    handle to endBurn (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 global ard;
-fprintf('%c\n', 'B');
+fprintf('%c\n', 'E');
 
 
 % --- Executes on button press in takePicture.
@@ -332,9 +332,3 @@ function takePicture_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 frameExtraction();
 
-
-% --- Executes on button press in currentStateButton.
-function currentStateButton_Callback(hObject, eventdata, handles)
-% hObject    handle to currentStateButton (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)

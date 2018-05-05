@@ -62,6 +62,7 @@ end
 switch xAxis
     case 1
         handles.xProbe = handles.probeData(:,2);
+        disp(handles.probeData(:,2));
     case 2
         handles.xProbe = handles.probeData(:,3);
     case 3
@@ -134,18 +135,9 @@ end
 cla(handles.Graph1);
 grid(handles.Graph1, 'on');
     
+plot(handles.xProbe, handles.yProbe, '.-b', 'Parent', handles.Graph1);
 
-% To fix the plotting issue, try to change all rows to only the previous
-% row in the switch statement above. 
-if (handles.xProbe & handles.yProbe) ~= 0 % Old If
-    plot(handles.xProbe, handles.yProbe, '.-b','Parent', handles.Graph1);
-end
 hold(handles.Graph1,'on');
 
-if (handles.xProbe & handles.yProbe) ~= 0 % Old If
-% if (matrix.container(end,4) ~= 0) % New if
-    plot(handles.xProbe, handles.yProbe, '.-r','Parent', handles.Graph1);
-end
-
-end
+plot(handles.xProbe, handles.yProbe, '.-r','Parent', handles.Graph1);
 
