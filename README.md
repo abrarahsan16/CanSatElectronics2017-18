@@ -1,3 +1,3 @@
-# CanSatElectronics2017-18
+# Ryerson International CanSat 2017-2018
 
-This is the repository for Ryerson Tomahawk. Both the past softwares as well as everything created during the 2017-2018 year is contained here.
+This is the repository for Ryerson Team Tomahawk.
