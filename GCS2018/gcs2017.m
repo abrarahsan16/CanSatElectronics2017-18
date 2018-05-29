@@ -76,7 +76,6 @@ setCOMPort(handles);
 
 
 
-
 % --- Outputs from this function are returned to the command line.
 function varargout = gcs2017_OutputFcn(hObject, eventdata, handles) 
 % varargout  cell array for returning output args (see VARARGOUT);
